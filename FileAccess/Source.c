@@ -26,14 +26,17 @@ void main()
 	for (counter = 0; counter < noCustomers; counter++)
 	{
 		//Name
-		printf("Please enter the Customers Name, Surname, Sales, Age and ID:\n");
-		scanf("%s %s %d %d %d", &name, &surname, &sales, &age, &customerID);
+		printf("\n\nPlease enter the Customers Name, Surname, Sales, Age and ID:\n");
+		scanf("%s %s %d %d %d", name, surname, &sales, &age, &customerID);
+
+		//Display
+		printf("%s %s %d %d %d", name, surname, sales, age, customerID);
 
 		//If File is opened, print
 		if (customerFile != NULL)
 		{
 			//Display
-			printf("\n\n%s %s %d %d %d", name, surname, sales, age, customerID);
+			fprintf(customerFile, "%s %s %d %d %d\n", name, surname, sales, age, customerID);
 		}
 		
 		//Total and Max Sales
@@ -54,6 +57,9 @@ void main()
 		}
 	}//End Loop for getting customer details
 
+	//Display 
+	printf("\n\n\n%d %d %d %d", combinedSales, maxSales, maxAge, minAge);
+
 	//If File is Open
 	if (customerFile != NULL)
 	{
@@ -73,7 +79,7 @@ void main()
 	else
 	{
 		//Display 
-		printf("\n%d %d %d %d", combinedSales, maxSales, maxAge, minAge);
+		fprintf(salesFile,"%d %d %d %d", combinedSales, maxSales, maxAge, minAge);
 
 		//Close File
 		fclose(salesFile);
