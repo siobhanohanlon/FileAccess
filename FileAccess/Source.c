@@ -19,9 +19,8 @@ void main()
 	printf("Please enter the number of customers that you're entering:\t");
 	scanf("%d", &noCustomers);
 
-	//Open Files
+	//Open Customer File to append
 	customerFile = fopen("Customers.txt", "a");
-	salesFile = fopen("Sales.txt", "w");
 
 	//Get details for customers
 	for (counter = 0; counter < noCustomers; counter++)
@@ -62,6 +61,21 @@ void main()
 		fclose(customerFile);
 	}
 
-	//Display 
-	printf("\n%d %d %d %d", combinedSales, maxSales, maxAge, minAge);
+	//Open Sales file to write
+	salesFile = fopen("Sales.txt", "w");
+
+	//If File can be open
+	if (salesFile == NULL)
+	{
+		printf("Sorry the File Could not be opened for sales info!!!");
+	}
+
+	else
+	{
+		//Display 
+		printf("\n%d %d %d %d", combinedSales, maxSales, maxAge, minAge);
+
+		//Close File
+		fclose(salesFile);
+	}
 }
