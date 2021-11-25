@@ -11,6 +11,9 @@ void main()
 	char surname[30];
 	int age, sales, customerID, noCustomers, counter, numInputs;
 	int combinedSales = 0, maxAge = 0, minAge = 150, maxSales = 0; //So anything thats added is smaller than 150 and over 0
+
+	//Random- used so number will always change
+	srand(time(NULL));
 	
 	//Load info from existing files
 	//Customer File
@@ -83,8 +86,11 @@ void main()
 	for (counter = 0; counter < noCustomers; counter++)
 	{
 		//Name
-		printf("\n\nPlease enter the Customers Name, Surname, Sales, Age and ID:\n");
-		scanf("%s %s %d %d %d", name, surname, &sales, &age, &customerID);
+		printf("\n\nPlease enter the Customers Name, Surname, Sales and Age:\n");
+		scanf("%s %s %d %d %d", name, surname, &sales, &age);
+
+		//Random Number
+		customerID = rand();
 
 		//Display
 		printf("Customer:%s %s Sales:%d Age:%d ID:%d", name, surname, sales, age, customerID);
