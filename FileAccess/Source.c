@@ -87,7 +87,7 @@ void main()
 	{
 		//Name
 		printf("\n\nPlease enter the Customers Name, Surname, Sales and Age:\n");
-		scanf("%s %s %d %d %d", name, surname, &sales, &age);
+		scanf("%s %s %d %d", name, surname, &sales, &age);
 
 		//Random Number
 		customerID = rand();
